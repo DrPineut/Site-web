@@ -1,0 +1,491 @@
+@import url('https://fonts.googleapis.com/css2? famille= Poppins : poids@300 ; 500 ; 600 ; 700 ; 800 & display=swap');
+
+:root {
+    --color-primary: #6C9BCF;
+    --color-danger: #FF0060;
+    --color-success: #1B9C85;
+    --color-white: #fff;
+    --color-info-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+  
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 1.2rem;
+  
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+  
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+.dark-mode-variables {
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant: #a3dbcc;
+    --color-light: rgba(0, 0, 0, 0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+    --color-info-dark: #677483;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    appearance: 0;
+    border: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 14px;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.88rem;
+    user-select: none;
+    overflow-x: hidden;
+    color: var(--color-dark);
+    background-color: var(--color-background);
+}
+
+a {
+    color: var(--color-dark);
+}
+  
+img{
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+  
+h1{
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+  
+h2{
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+  
+h3{
+    font-weight: 500;
+    font-size: 0.87rem;
+}
+  
+small{
+    font-size: 0.76rem;
+}
+  
+p{
+    color: var(--color-dark-variant);
+}
+  
+b{
+    color: var(--color-dark);
+}
+  
+.text-muted{
+    color: var(--color-info-dark);
+}
+  
+.primary{
+    color: var(--color-primary);
+}
+  
+.danger{
+    color: var(--color-danger);
+}
+  
+.success{
+    color: var(--color-success);
+}
+  
+.warning{
+    color: var(--color-warning);
+}
+
+.container{
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    gap: 1.8rem;
+    grid-template-columns: 12rem auto 23rem;
+}
+
+main{
+    margin-top: 1.4rem;
+}
+
+main .dashboard{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+}
+
+main .dashboard > div{
+    background-color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    box-shadow: var(--card-border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+main .dashboard > div:hover{
+    box-shadow: none;
+}
+
+main .dashboard > div .status{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main .dashboard h3{
+    margin-left: 0.6rem;
+    font-size: 1rem;
+}
+
+main .dashboard .progress{
+    position: relative;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+}
+
+main .dashboard svg{
+    width: 7rem;
+    height: 7rem;
+}
+
+main .dashboard svg circle{
+    fill: none;
+    stroke-width: 10;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+}
+
+main .dashboard .gel svg circle{
+    stroke: var(--color-success);
+    stroke-dashoffset: -30;
+    stroke-dasharray: 200;
+}
+
+main .dashboard .hands svg circle{
+    stroke: var(--color-danger);
+    stroke-dashoffset: -30;
+    stroke-dasharray: 200;
+}
+
+main .dashboard .progress .percentage{
+    position: absolute;
+    top: -3px;
+    left: -1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+main .dashboard .use{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+}
+
+main .dashboard .use .status{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+main .dashboard .use .info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+main .dashboard .use h3{
+    order: -1;
+}
+
+main .dashboard .use .status .info h1 {
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin: 0;
+}
+
+main .dashboard .use .etat{
+    margin-top: 1.5rem;
+}
+
+main .dashboard .calendar{
+    position: relative;
+}
+
+main .dashboard .calendar .month-list{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--color-white);
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 5px;
+    transform: scale(1.5);
+    visibility: hidden;
+    pointer-events: none;
+    border-radius: var(--card-border-radius);
+}
+
+main .dashboard .calendar .month-list.show{
+    transform: scale(1);
+    visibility: visible;
+    pointer-events: visible;
+    transition: all 0.2s ease-in-out;
+}
+
+main .dashboard .calendar .month-list > div{
+    display: grid;
+    place-items: center;
+}
+
+main .dashboard .calendar .month-list > div > div{
+    width: 100%;
+    padding: 5px 20px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+main .dashboard .calendar .month-list > div > div:hover{
+    background-color: var(--color-danger);
+}
+
+@keyframes to-top{
+    0%{
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+main .dashboard .calendar-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0.6rem;
+}
+
+main .dashboard .calendar-header .month-picker{
+    padding: 5px 10px;
+    border-radius: var(--border-radius-1);
+    cursor: pointer;
+}
+
+main .dashboard .calendar-header .year-picker{
+    display: flex;
+    align-items: center;
+}
+
+main .dashboard .calendar-header .year-change{
+    height: 1.2rem;
+    width: 1.2rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+main .dashboard .calendar-body{
+    padding: 0.6rem;
+}
+
+main .dashboard .calendar-body .calendar-week-day{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: 600;
+    height: 50px;
+}
+
+main .dashboard .calendar-body .calendar-week-day div{
+    display: grid;
+    place-items: center;
+    color: var(--color-dark-variant);
+}
+
+main .dashboard .calendar-body .calendar-days{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+}
+
+main .dashboard .calendar-body .calendar-days div{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    position: relative;
+    cursor: pointer;
+    animation: to-top 1s forwards;
+}
+
+main .dashboard .calendar-body .calendar-days div span{
+    position: absolute;
+}
+
+main .dashboard .calendar-body .calendar-days div:hover span{
+    transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+}
+
+main .dashboard .calendar-body .calendar-days div span:nth-child(1),
+main .dashboard .calendar-body .calendar-days div span:nth-child(3){
+    width: 2px;
+    height: 0;
+    background-color: var(--color-info-dark);
+}
+
+main .dashboard .calendar-body .calendar-days div:hover span:nth-child(1),
+main .dashboard .calendar-body .calendar-days div:hover span:nth-child(3){
+    height: 100%;
+}
+
+main .dashboard .calendar-body .calendar-days div span:nth-child(1){
+    bottom: 0;
+    left: 0;
+}
+
+main .dashboard .calendar-body .calendar-days div span:nth-child(3){
+    top: 0;
+    right: 0;
+}
+
+main .dashboard .calendar-body .calendar-days div span:nth-child(2),
+main .dashboard .calendar-body .calendar-days div span:nth-child(4){
+    width: 0;
+    height: 2px;
+    background-color: var(--color-info-dark);
+}
+
+main .dashboard .calendar-body .calendar-days div:hover span:nth-child(2),
+main .dashboard .calendar-body .calendar-days div:hover span:nth-child(4){
+    width: 100%;
+}
+
+main .dashboard .calendar-body .calendar-days div span:nth-child(2){
+    top: 0;
+    left: 0;
+}
+
+main .dashboard .calendar-body .calendar-days div span:nth-child(4){
+    bottom: 0;
+    right: 0;
+}
+
+main .dashboard .calendar-body .calendar-days div:hover span:nth-child(2){
+    transition-delay: 0.2s;
+}
+
+main .dashboard .calendar-body .calendar-days div:hover span:nth-child(3){
+    transition-delay: 0.4s;
+}
+
+main .dashboard .calendar-body .calendar-days div:hover span:nth-child(4){
+    transition-delay: 0.6s;
+}
+
+main .dashboard .calendar-body .calendar-days div.curr-date{
+    background-color: var(--color-danger);
+    color: var(--color-white);
+    border-radius: 50%;
+}
+
+main .dashboard .calendar-body .calendar-days div.curr-date span{
+    display: none;
+}
+
+main .graphique{
+    margin-top: 1.3rem;
+}
+
+main .graphique .chart{
+    background-color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1.4rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+main .graphique .chart:hover{
+    box-shadow: none;
+}
+
+main .sale-list{
+    margin-top: 1.3rem;
+}
+
+main .sale-list h2{
+    margin-bottom: 0.8rem;
+}
+
+main .sale-list table{
+    background-color: var(--color-white);
+    width: 100%;
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--card-border-radius);
+    transition: all 0.3s ease;
+}
+
+main .sale-list table:hover{
+    box-shadow: none;
+}
+
+main table tbody td{
+    height: 2.8rem;
+    border-bottom: 1px solid var(--color-light);
+    color: var(--color-dark-variant);
+}
+
+main table tbody tr:last-child td{
+    border: none;
+}
+
+main .sale-list a{
+    text-align: center;
+    display: block;
+    margin: 1rem auto;
+    color: var(--color-primary);
+}

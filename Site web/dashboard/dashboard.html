@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- MATERIAL CDN -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="../sidebar/sidebar.css">
+    <link rel="stylesheet" href="../rightsection/rightsection.css">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Section de la barre latérale -->
+        <aside>
+            <div class="toggle">
+                <div class="logo">
+                    <img src="../images/logo/logo.png">
+                    <h2>Automati<span class="danger">Gel</span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">
+                        close
+                    </span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="dashboard.html" class="active">
+                    <span class="material-icons-sharp">
+                        dashboard
+                    </span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="../history/history.html">
+                    <span class="material-icons-sharp">
+                        receipt_long
+                    </span>
+                    <h3>History</h3>
+                </a>
+                <a href="../analytics/analytics.html">
+                    <span class="material-icons-sharp">
+                        insights
+                    </span>
+                    <h3>Analytics</h3>
+                </a>
+                <a href="../sale_list/salelist.html">
+                    <span class="material-icons-sharp">
+                        inventory
+                    </span>
+                    <h3>Sale List</h3>
+                </a>
+                <a href="../reservations/reservations.html">
+                    <span class="material-icons-sharp">
+                        calendar_today
+                    </span>
+                    <h3>Reservations</h3>
+                </a>
+                <a href="../setting/setting.html">
+                    <span class="material-icons-sharp">
+                        settings
+                    </span>
+                    <h3>Settings</h3>
+                </a>
+            </div>
+        </aside>
+        <!-- Fin de la section de la barre latérale -->
+
+        <!-- Contenu principal -->
+        <main>
+            <h1>Dashboard</h1>
+            <div class="dashboard">
+                <!-- Données d'utilisation de gel -->
+                <div class="gel">
+                    <div class="status">
+                        <div class="info">
+                            <h3>Total Gel Used</h3>
+                            <h1>600</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="percentage">
+                                <p>+80%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gel-chart">
+                        <div class="gel-chart">
+                            <canvas id="gel-chart2"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fin des données d'utilisation de gel -->
+
+                <!-- Données de mains détectées -->
+                <div class="hands">
+                    <div class="status">
+                        <div class="info">
+                            <h3>Total hands detected</h3>
+                            <h1>130</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="percentage">
+                                <p>+80%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hands-chart">
+                        <div class="hands-chart">
+                            <canvas id="hands-chart2"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fin des données de mains détectées -->
+
+                <!-- Dernière utilisation + Etat du distributeur -->
+                <div class="use">
+                    <div class="status">
+                        <h3>Last Used</h3>
+                        <div class="info">
+                            <h1> 31-10-2023 <p> 15:30:00 </p></h1>
+                        </div>
+                    </div>
+                    <div class="etat">
+                        <div class="status">
+                            <h3>Etat du distributeur</h3>
+                            <div class="info">
+                                <h1 class="danger">En cours d'utilisation</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fin de Dernière utilisation + Etat du distributeur -->
+
+                <!-- Calendrier -->
+                <div class="calendar">
+                    <div class="calendar-header">
+                        <span class="month-picker" id="monthpicker">
+                            November
+                        </span>
+                        <div class="year-picker">
+                            <span class="year-change" id="prev-year">
+                                <pre><</pre>
+                            </span>
+                            <span id="year">2023</span>
+                            <span class="year-change" id="next-year">
+                                <pre>></pre>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="calendar-body">
+                        <div class="calendar-week-day">
+                            <div>Sun</div>
+                            <div>Mon</div>
+                            <div>Tue</div>
+                            <div>Wed</div>
+                            <div>Thu</div>
+                            <div>Fri</div>
+                            <div>Sat</div>
+                        </div>
+                        <div class="calendar-days">
+                            <div>
+                                1
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div>2</div>
+                            <div>3</div>
+                            <div>4</div>
+                            <div>5</div>
+                            <div>6</div>
+                            <div>7</div>
+                            <div>1</div>
+                            <div>2</div>
+                            <div>3</div>
+                            <div>4</div>
+                            <div>5</div>
+                            <div>6</div>
+                            <div>7</div>
+                        </div>
+                    </div>
+
+                    <div class="month-list"></div>
+                </div>
+                <!-- Fin du calendrier -->
+
+                <!-- Graphique -->
+                <div class="graphique">
+                    <h2>Graphique</h2>
+                    <div class="chart">
+                        <canvas id="usagechart"></canvas>
+                    </div>
+                </div>
+                <!-- Fin du graphique -->
+
+                <!-- Sale List -->
+                <div class="sale-list">
+                    <h2>Sale List</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>N°</th>
+                                <th>Object</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <a href="../salelist/salelist.html">Show All</a>
+                </div>
+                <!-- Fin de Sale List -->
+
+                <!-- Autres informations à ajouter ici -->
+            </div>
+        </main>
+        <!-- Fin du contenu principal -->
+
+        <!-- Section de droite -->
+        <div class="right-section">
+            <div class="nav">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp">
+                        menu
+                    </span>
+                </button>
+                <div class="dark-mode">
+                    <span class="material-icons-sharp active">
+                        light_mode
+                    </span>
+                    <span class="material-icons-sharp">
+                        dark_mode
+                    </span>
+                </div>
+            </div>
+            <!-- Fin de nav -->
+
+            <!-- Profil utilisateur -->
+            <div class="user-profile">
+                <div class="logo">
+                    <img src="../images/logo/logo.png">
+                    <h2>Distributeur de gel Automatique</h2>
+                    <p>Fullstack Web Developer</p>
+                </div>
+            </div>
+
+            <!-- Rappels -->
+            <div class="reminders">
+                <div class="header">
+                    <h2>Reminders</h2>
+                    <span class="material-icons-sharp">
+                        notifications_none
+                    </span>
+                </div>
+
+                <div class="notification">
+                    <div class="icon">
+                        <span class="material-icons-sharp">
+                            volume_up
+                        </span>
+                    </div>
+                    <div class="content">
+                        <div class="info">
+                            <h3>Reports</h3>
+                            <small class="text_muted">
+                                Disfonctionnement anormal
+                            </small>
+                        </div>
+                        <span class="material-icons-sharp">
+                            more_vert
+                        </span>
+                    </div>
+                </div>
+                <a href="../reports/reports.html">Show All</a>
+
+                <div class="notification deactive">
+                    <div class="icon">
+                        <span class="material-icons-sharp">
+                            calendar_today
+                        </span>
+                    </div>
+                    <div class="content">
+                        <div class="info">
+                            <h3>Reservations</h3>
+                            <small class="text_muted">
+                                La prochaine réservation est celle de ...
+                            </small>
+                        </div>
+                        <span class="material-icons-sharp">
+                            more_vert
+                        </span>
+                    </div>
+                </div>
+                <a href="../reservation/reservation.html">Show All</a>
+                       
+            </div>
+
+            <!-- Bloc Note -->
+            <div class="bloc-note">
+                <div class="header-note">
+                    <h2>Bloc-note</h2>
+                    <span class="material-icons-sharp">
+                        notes
+                    </span>
+                </div>
+                <div class="bloc-note-content" contenteditable="true"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT -->
+    
+    <!-- Graphique -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="../dashboard/graphique/graphique.js"></script>
+    <script src="../darkmode/darkmode.js"></script>
+    <script src="../notes/notes.js"></script>
+    <script src="../dashboard/calendrier/calendrier.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</body>
+</html>
