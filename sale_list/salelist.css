@@ -1,0 +1,101 @@
+/* salelist.css */
+
+main {
+    padding: 20px;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.salelist {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.gel,
+.moteur,
+.capteur {
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.gel:hover,
+.moteur:hover,
+.capteur:hover {
+    transform: scale(1.05);
+}
+
+.image {
+    overflow: hidden;
+    border-bottom: 1px solid #ddd;
+}
+
+.image img {
+    width: 100%;
+    height: auto;
+}
+
+footer {
+    padding: 15px;
+}
+
+.info {
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#addItemForm {
+    margin-bottom: 20px;
+}
+
+#addItemForm label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#addItemForm input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+#addItemForm button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#addItemForm button:hover {
+    background-color: #2980b9;
+}
